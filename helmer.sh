@@ -40,7 +40,7 @@ function package {
 
     # Use eval to execute the helm command and check for errors
     if ! output=$(eval "helm $helm_command 2>&1"); then
-        echo "ERROR: $output" >&2
+        echo "$output" >&2
         exit 1
     fi
 }
