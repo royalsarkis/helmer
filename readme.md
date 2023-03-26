@@ -6,7 +6,7 @@ Helmer is a bash-based application that provides functionality similar to the he
 `curl -s https://raw.githubusercontent.com/royalsarkis/helmer/main/helmer.sh -o ~/bin/helmer && chmod +x ~/bin/helmer && export PATH=$PATH:~/bin
 `
 ## Usage
-`$ helmer package [chart directory] [--set key=value]
+`helmer package [chart directory] [--set key=value]
 `
 ## Contributing
 If you wish to contribute to Helmer, please feel free to submit a pull request. Contributions are always welcome!
