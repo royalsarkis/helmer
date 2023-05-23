@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# check if yq is installed
+function check_yq {
+    which yq > /dev/null
+    if [[ $? != 0 ]]; then
+        echo -e "\033[1m\033[31mWarning: Please Install yq in order to ensure the script functions correctly\033[0m"
+        exit 1
+    fi
+}
 # Define the path to the YAML file you want to modify
 function fill_values {
     # Parse the key-value pairs from the command line arguments
@@ -31,7 +39,7 @@ function fill_values {
 }
 
 function package {
-
+    check_yq
     while [[ $# -gt 0 ]]; do
         case $1 in
             --set)
