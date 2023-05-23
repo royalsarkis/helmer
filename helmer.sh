@@ -5,6 +5,7 @@ function check_yq {
     which yq > /dev/null
     if [[ $? != 0 ]]; then
         echo -e "\033[1m\033[31mWarning: Please Install yq in order to ensure the script functions correctly\033[0m"
+        echo "https://github.com/mikefarah/yq"
         exit 1
     fi
 }
@@ -18,7 +19,7 @@ function fill_values {
                 YAML_KEY="${2%%=*}"
                 YAML_VALUE="${2#*=}"
                 shift # past key=value
-                # Check if the key exists in the YAML file
+                #Check if the key exists in the YAML file
                 if [[ $(yq eval ".${YAML_KEY}" "$FILEPATH") == "null" ]]; then
                     echo "ERROR: Key ${YAML_KEY} does not exist in YAML file" >&2
                     exit 1
@@ -27,7 +28,7 @@ function fill_values {
                     exit 1
                 else
                     # Use yq to modify the value in the YAML file
-                    yq eval --inplace ".${YAML_KEY} = \"$YAML_VALUE\"" "$FILEPATH"
+                     yq eval --inplace ".${YAML_KEY} = \"$YAML_VALUE\"" $FILEPATH
                 fi
                 ;;
             *)
