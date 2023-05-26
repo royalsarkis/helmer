@@ -3,6 +3,7 @@
 Helmer is a bash-based application that provides functionality similar to the helm package command, with the added benefit of allowing you to override the values.yaml file. The primary use of Helmer is with CI/CD pipelines.
 
 ## Prerequisites
+* **Helm 3** installed
 * **yq** installed: https://github.com/mikefarah/yq
 
 ## Installation
